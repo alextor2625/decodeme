@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/CSS" href="styles/style.css">
+
+    <title>DecodeME</title>
+</head>
+<body>
+    <div id="intro-screen">
+        <video autoplay muted loop id="blue_matrix_vid">
+            <source src="media/blue_matrix.mp4" type="video/mp4">
+        </video>
+        <div id="title">DecodeME</div>
+        <div class="button">
+            <button type="button" id="start-button">Start</button>
+            <button type="button" id="how-to-button">How to play?</button>
+        </div>
+    </div>
+    <div id="game-screen">
+        <div id="stats" class="hidden">
+            <span id="score">Score: </span>
+            <span id="lives">Lives: </span>
+            <span id="timer">Timer: </span>
+        </div>
+        <div id="game-content"></div>
+    </div>
+    <div id="end-screen">
+
+    </div>
+    <script src="./scripts/dictionary.js"></script>
+    <script src="./scripts/decodeme.js"></script>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
