@@ -33,7 +33,7 @@ body {
   margin-bottom: 20vh;
   font-size: 10em;
 }
-#intro-screen .button #start-button, #intro-screen .button #how-to-button {
+#intro-screen .button #start-button, #intro-screen .button #how-to-play-button {
   font-size: 5em;
 }
 #intro-screen .button #start-button {
@@ -57,10 +57,11 @@ body {
   margin-bottom: 5vh;
   font-size: 3em;
 }
-#game-screen #game-level .button span {
+#game-screen #game-level .button label {
   font-size: 3em;
 }
 #game-screen #game-level .button #player-input {
+  color: skyblue;
   width: 50%;
   height: 1em;
   font-size: 3em;
@@ -70,6 +71,23 @@ body {
 }
 #game-screen #game-level .button #submit-button {
   font-size: 3em;
+}
+
+#instructions h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 5em;
+  margin: 10px 0;
+}
+#instructions h2 {
+  font-size: 3em;
+  margin: 10px 20px;
+}
+#instructions p, #instructions ul {
+  font-size: 2em;
+  margin: 1em 0;
+  margin-left: 3em;
+  text-align: justify;
 }
 
 #end-screen {

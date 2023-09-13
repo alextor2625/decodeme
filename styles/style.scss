@@ -37,7 +37,7 @@ body{
     }
     .button{
         // display: flex;
-        #start-button, #how-to-button{
+        #start-button, #how-to-play-button{
             font-size: 5em;
         }
         #start-button{
@@ -71,11 +71,12 @@ body{
             // display: flex;
             // justify-content: center;
             // align-items: flex-end;
-            span{
+            label{
                 font-size: 3em;
             }
             #player-input{
                 // margin-left: 5vw;
+                color: skyblue;
                 width: 50%;
                 height: 1em;
                 font-size: 3em;
@@ -91,6 +92,27 @@ body{
         }
 
     }
+}
+
+#instructions{
+    h1{
+        display: flex;
+        justify-content: center;
+        font-size: 5em;
+        margin: 10px 0;
+    }
+
+    h2{
+        font-size: 3em;
+        margin: 10px 20px;
+    }
+    p, ul{
+        font-size: 2em;
+        margin: 1em 0;
+        margin-left: 3em;
+        text-align: justify;
+    }
+    
 }
 
 #end-screen{

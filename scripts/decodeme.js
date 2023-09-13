@@ -1,11 +1,11 @@
 class DecodeMeGame{
-    constructor(key){
-        this.timer = 60; // Every 1000 is a second.
+    constructor(maxKeyRange){
+        this.timer = 330; // Every 1000 is a second.
         this.intervalID = null;
-        this.randKey = key;
-        this.dictionary = new Dictionary(this.randKey);
+        this.dictionary = new Dictionary(maxKeyRange);
         this.wordList = this.dictionary.words;
         this.encWordList = this.dictionary.encWords;
+        this.keyList = this.dictionary.keyArr;
         this.index = this.randomIndex(this.wordList.length);
         this.score = 0;
         this.lives = 3;
@@ -46,17 +46,7 @@ class DecodeMeGame{
         clearInterval(this.intervalID)
         this.showGameEndScreen();
     }
-    randomKey(maxKeyRange){
-        if(maxKeyRange > 10){
-            this.randKey = Math.floor(Math.random()*10);
-            return 'New Random Key';
-        }else{
-            console.log('Here');
-            this.randKey = Math.floor(Math.random()*maxKeyRange)+1;
-            return 'New Random Key';
-        }
-    }
-    
+
     getCurrEncWord(){
         return this.encWordList[this.index]
     }
@@ -114,6 +104,7 @@ class DecodeMeGame{
                 this.incrementScore();
                 this.wordList.splice(this.index,1);
                 this.encWordList.splice(this.index,1);
+                this.keyList.splice(this.index,1);
                 this.setRandIndex();
                 console.log("Correct");
                 return true;
@@ -134,7 +125,7 @@ class DecodeMeGame{
 
 
     getCurrKey(){
-        return this.randKey;
+        return this.keyList[this.index];
     }
 
     isDecrypt(word){

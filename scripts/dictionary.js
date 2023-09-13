@@ -1,5 +1,5 @@
 class Dictionary {
-    constructor(key){
+    constructor(maxKeyRange){
         this.encDict = {} // Dictionary that has each word as key and the encryted word as value.
         this.decDict = {} // Dictionary that has each encrypted word as key and the word as value.
         // List of words to be used for the game.    TODO: Need to figure out a way to access these words from a file.
@@ -31,7 +31,9 @@ class Dictionary {
             'fischbein',        'fiske',         'gash',        'gallium',
           ];
         this.dictSize = this.words.length; // Size of all our dictionary arrays.
-        this.encWords = this.caesarEncrypt(key); // List of encrypted words.
+        this.randKey = 1;
+        this.keyArr = [];
+        this.encWords = this.caesarEncrypt(maxKeyRange); // List of encrypted words.
 
 
         /* ******************************************************************************************** *
@@ -46,8 +48,8 @@ class Dictionary {
          * ********************************************************************************************************************* *
          */
         this.getWords().forEach((word,i) => {
-            this.encDict[word] = this.encWords[i];
-            this.decDict[this.encDict[word]] = this.words[i]
+            this.encDict[word] = {enc: this.encWords[i],key: this.keyArr[i]};
+            this.decDict[this.encDict[word].enc] = {dec: word, key: this.keyArr[i]}
         })
         
 
@@ -69,6 +71,19 @@ class Dictionary {
                 'Y','Z']
     }
 
+    randomKey(maxKeyRange){
+        let randKey = 0;
+        if(maxKeyRange >= 20){
+            randKey = Math.floor(Math.random()*20)+1;
+            
+        }else if(maxKeyRange <= 10){
+            randKey = Math.floor(Math.random()*10)+1;
+        }else{
+            randKey = Math.floor(Math.random()*maxKeyRange)+1
+        }
+        return randKey;
+    }
+
 
     /* ************************************************* *
      * Ecryption method based on the Caesar Cipher.      *
@@ -87,14 +102,29 @@ class Dictionary {
      * The final ecryption result would be IFMMP.                 *
      * ********************************************************** *
      */
-    caesarEncrypt(key){ 
-        if(!key){return null;}
+    // caesarEncrypt(key){ 
+    //     if(!key){return null;}
+    //     const words = this.getWords().map((w) => w.toUpperCase());
+    //     const alphabet = this.getAlphabet();
+        
+    //     const encWords = words.map((w) => {
+    //         return w.split('').map((c) => {
+    //             let index = (alphabet.indexOf(c)+key)%alphabet.length;
+    //             return alphabet[index];
+    //         }).join('');
+    //     });
+    //     return encWords;
+    // }
+
+    caesarEncrypt(maxKeyRange){ 
+        if(!maxKeyRange){return null;}
         const words = this.getWords().map((w) => w.toUpperCase());
         const alphabet = this.getAlphabet();
-        
         const encWords = words.map((w) => {
+            this.randKey = this.randomKey(maxKeyRange)
+            this.keyArr.push(this.randKey)
             return w.split('').map((c) => {
-                let index = (alphabet.indexOf(c)+key)%alphabet.length;
+                let index = (alphabet.indexOf(c)+this.randKey)%alphabet.length;
                 return alphabet[index];
             }).join('');
         });
@@ -125,6 +155,21 @@ class Dictionary {
         return decWords;
 
     }
+
+    // caesarDecrypt(maxKeyRange){
+    //     if(!maxKeyRange){return null;}
+    //     const words = this.getEncWords();
+    //     const alphabet = this.getAlphabet();
+    //     const decWords = words.map((w) =>{
+    //         return w.split('').map((c) => {
+    //             let index = (alphabet.indexOf(c)-this.randomKey(maxKeyRange))%alphabet.length;
+    //             if(alphabet[index] === undefined){return alphabet[alphabet.length-Math.abs(index)]}
+    //             return alphabet[index]
+    //         }).join('')
+    //     })
+    //     return decWords;
+
+    // }
 
     // caesarEncryptLevel2(key){
         // if(!key){return null;}
