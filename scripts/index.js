@@ -45,11 +45,11 @@ window.onload = () => {
                 if(game.scoring(input.value)){
                     newLevel();
                 }
-                let backToStartButton = document.getElementById('back-to-start-button');
-                backToStartButton.addEventListener('click', () => {
-                    document.querySelector('#intro-screen').classList.toggle('hidden');
-                    // document.querySelector('#game-screen').toggle('hidden')
-                    document.getElementById('end-content').remove()
+                // let backToStartButton = document.getElementById('back-to-start-button');
+                // backToStartButton.addEventListener('click', () => {
+                //     document.querySelector('#intro-screen').classList.toggle('hidden');
+                //     // document.querySelector('#game-screen').toggle('hidden')
+                //     document.getElementById('end-content').remove()
                 })
             })
             input.onchange = (e) =>{
