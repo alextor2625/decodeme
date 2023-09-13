@@ -1,7 +1,7 @@
 window.onload = () => {
 
     let slider = document.getElementById('sub-alpha')
-    let position = -500
+    let position = -570
     slider.style.left = `${position}px`
 
     document.addEventListener('keydown', (e) => {
@@ -12,12 +12,12 @@ window.onload = () => {
 
         switch (e.key) {
             case 'ArrowLeft':
-                position -= 20
+                position -= 10
                 slider.style.left = `${position}px`
                 console.log(position)
                 break
             case "ArrowRight":
-                position += 20
+                position += 10
                 slider.style.left = `${position}px`
                 console.log(position)
         }

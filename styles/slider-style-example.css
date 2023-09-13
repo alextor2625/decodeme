@@ -1,32 +1,24 @@
+
 #container {
     width: 500px;
     height: 100px;
     overflow: hidden;
 }
 
-#main-alpha {
+ #main-alpha {
     display: flex;
     width: 500px;
-    p{
-        margin-left: 10px;
-        font-size: 20px;
-    }
  }
 
-p{
+p {
+    width: 8px;
     border: 1px solid black;
-    margin: 0;
-}
+    margin: 0 5px
+ }
 
  #sub-alpha {
     position: relative;
     display: flex;
-    justify-content: space-between;
     width: 1500px;
-
-    p{
-        margin-right: 15px;
-        font-size: 24px;
-        
-    }
+    /* left: -500px; */
  }

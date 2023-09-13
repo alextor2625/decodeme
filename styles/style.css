@@ -1,24 +1,30 @@
-
 #container {
-    width: 500px;
-    height: 100px;
-    overflow: hidden;
+  width: 500px;
+  height: 100px;
+  overflow: hidden;
 }
 
- #main-alpha {
-    display: flex;
-    width: 500px;
- }
+#main-alpha {
+  display: flex;
+  width: 500px;
+}
+#main-alpha p {
+  margin-left: 10px;
+  font-size: 20px;
+}
 
 p {
-    width: 8px;
-    border: 1px solid black;
-    margin: 0 5px
- }
+  border: 1px solid black;
+  margin: 0;
+}
 
- #sub-alpha {
-    position: relative;
-    display: flex;
-    width: 1500px;
-    /* left: -500px; */
- }
+#sub-alpha {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 1500px;
+}
+#sub-alpha p {
+  margin-right: 15px;
+  font-size: 24px;
+}/*# sourceMappingURL=style.css.map */
