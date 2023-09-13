@@ -155,8 +155,8 @@ input[type=range] {
     transform-origin: bottom center;
   }
   
-  .plaintext span:first-child,
-  .ciphertext span:first-child,{
+  .plaintext span:first-child, 
+  .ciphertext span:first-child{
     text-decoration: underline;
   }
   @for $i from 0 through 100 {
