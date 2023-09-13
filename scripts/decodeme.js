@@ -1,6 +1,6 @@
 class DecodeMeGame{
     constructor(key){
-        this.timer = 3; // Every 1000 is a second.
+        this.timer = 60; // Every 1000 is a second.
         this.intervalID = null;
         this.randKey = key;
         this.dictionary = new Dictionary(this.randKey);
@@ -68,8 +68,8 @@ class DecodeMeGame{
     
     gameStart(){
         this.startScreen.classList.toggle('hidden');
-        this.gameScreen.style.height = `${this.height}vh`;
-        this.gameScreen.style.width = `${this.width}vw`;
+        // this.gameScreen.style.height = `${this.height}vh`; //Changed this last night
+        // this.gameScreen.style.width = `${this.width}vw`;
         document.getElementById('stats').classList.toggle('hidden');
         this.statsScore.innerHTML += this.score;
         this.statsLives.innerHTML += this.lives;
@@ -77,9 +77,14 @@ class DecodeMeGame{
         
     }
     gameEnd(){
+        this.timer = 0;
+        this.lives = 0;
+        this.statsLives.innerHTML = `Lives: ${this.lives}`;
+        this.statsTimer.innerHTML = `Timer: ${this.timer}`;
         this.gameScreen.classList.add('hidden');
         this.endScreen.style.height = `${this.height}vh`;
         this.endScreen.style.width = `${this.width}vw`;
+        
     }
 
 
