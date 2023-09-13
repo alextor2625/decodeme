@@ -1,6 +1,6 @@
 class DecodeMeGame{
     constructor(key){
-        this.timer = 60; // Every 1000 is a second.
+        this.timer = 3; // Every 1000 is a second.
         this.intervalID = null;
         this.randKey = key;
         this.dictionary = new Dictionary(this.randKey);
@@ -37,22 +37,24 @@ class DecodeMeGame{
     startTimerCountdown(){
         this.intervalID = setInterval(() =>{
             this.decrementTimer()
-            if(!this.timer || !this.lives){
+            if(this.isGameOver()){
                 game.stopTimer();
             }
         },1000);
     }
     stopTimer(){
         clearInterval(this.intervalID)
+        this.showGameEndScreen();
     }
     randomKey(maxKeyRange){
-        if(!maxKeyRange){
-            this.randKey = 0;
-        }
         if(maxKeyRange > 10){
             this.randKey = Math.floor(Math.random()*10);
+            return 'New Random Key';
+        }else{
+            console.log('Here');
+            this.randKey = Math.floor(Math.random()*maxKeyRange)+1;
+            return 'New Random Key';
         }
-        this.randKey = Math.floor(Math.random()*maxKeyRange);
     }
     
     getCurrEncWord(){
@@ -75,7 +77,7 @@ class DecodeMeGame{
         
     }
     gameEnd(){
-        this.gameScreen.classList.toggle('hidden');
+        this.gameScreen.classList.add('hidden');
         this.endScreen.style.height = `${this.height}vh`;
         this.endScreen.style.width = `${this.width}vw`;
     }
@@ -88,14 +90,14 @@ class DecodeMeGame{
         let htmlYouWin = '';
         htmlGameOver += `
         <div id="end-message">
-            <h1><strong>GAME OVER<strong></h1>
-            <p>FINAL SCORE: ${game.score}<p>
+            <p><strong>GAME OVER</strong></p>
+            <p><strong>FINAL SCORE: ${game.score}</strong><p>
         </div>
         `;
         htmlYouWin += `
         <div id="end-message">
-            <h1><strong>You Win<strong></h1>
-            <p>FINAL SCORE: ${game.score}<p>
+            <p><strong>YOU WIN</strong></p>
+            <p><strong>FINAL SCORE: ${game.score}</strong><p>
         </div>
         `;
         endScreen.innerHTML = game.score >= 5 ? htmlYouWin : htmlGameOver;
@@ -119,7 +121,6 @@ class DecodeMeGame{
             this.showGameEndScreen();
             return false;
         }
-        // return this.isGameOver(); // Might change this line later.
 
     }
     randomIndex(arrSize){
@@ -138,7 +139,7 @@ class DecodeMeGame{
         return this.score >= 5;
     }
     isGameOver(){
-        return this.lives === 1 || this.timer === 1;
+        return this.lives === 1 || this.timer === 0;
     }
 }
 

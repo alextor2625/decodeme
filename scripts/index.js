@@ -7,6 +7,7 @@ function newLevel(){
     let key = document.getElementById('key');
     let playerInput = document.getElementById('player-input')
     encWord.innerHTML = game.getCurrEncWord()
+    game.randomKey(10);
     key.innerHTML = game.getCurrKey();
     playerInput.value = '';
     console.log(game.dictionary.decDict[game.getCurrEncWord()]);
@@ -23,14 +24,16 @@ window.onload = () => {
         
         let html = '';
             html += `
-            <div id="game-level"> 
-                <p id="enc-word-prompt">Encrypted Word: <span id="enc-word">${game.getCurrEncWord()}</span></p>
-                <p id="key-word-prompt">Key: <span id="key">${game.getCurrKey()}</span></p>
+            <div id="game-level">
+                <div class="content">
+                    <p id="enc-word-prompt">Encrypted Word: <span id="enc-word">${game.getCurrEncWord()}</span></p>
+                    <p id="key-word-prompt">Key: <span id="key">${game.getCurrKey()}</span></p>
+                </div>
                 <div class="button"><span>></span>
                     <input type="text" id="player-input"></input>
                     <button id="submit-button">Submit</button>
                 </div>
-                <div class="circle"></div>
+                <div class="cipher-slider"></div>
             </div>
             `
                     

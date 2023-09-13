@@ -1,18 +1,22 @@
 * {
   margin: 0;
   font-family: "Lucida Console", "Courier New", monospace;
-  font-size: 10px;
 }
 
 .hidden {
   display: none;
 }
 
+body {
+  font-size: 10px;
+  color: skyblue;
+  background-color: black;
+}
+
 #intro-screen #blue_matrix_vid {
   -o-object-fit: cover;
      object-fit: cover;
   position: fixed;
-  background-color: black;
   right: 0;
   bottom: 0;
   width: 100vw;
@@ -25,7 +29,6 @@
   align-items: center;
 }
 #intro-screen #title {
-  color: skyblue;
   margin-top: 20vh;
   margin-bottom: 20vh;
   font-size: 10em;
@@ -38,10 +41,6 @@
   padding-right: 4vw;
 }
 
-#game-screen {
-  color: skyblue;
-  background-color: black;
-}
 #game-screen #stats * {
   display: flex;
   flex-direction: column;
@@ -65,20 +64,12 @@
   width: 50%;
   height: 1em;
   font-size: 3em;
-  color: skyblue;
   padding-top: 5px;
   border: none;
   background-color: rgb(0, 25, 40);
 }
 #game-screen #game-level .button #submit-button {
   font-size: 3em;
-}
-#game-screen #game-level .circle {
-  height: 502px;
-  width: 497px;
-  border-radius: 50%;
-  position: absolute;
-  background-image: url("../images/caesar_ring.png");
 }
 
 #end-screen {
