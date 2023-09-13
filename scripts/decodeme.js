@@ -106,11 +106,7 @@ class DecodeMeGame{
         </div>
         `;
         endScreen.innerHTML = game.score >= 5 ? htmlYouWin : htmlGameOver;
-        let backToStartButton = document.getElementById('back-to-start-button');
-        backToStartButton.addEventListener('click', () => {
-            document.querySelector('#intro-screen').classList.toggle('hidden');
-            document.getElementById('end-content').remove()
-        })
+        
     }
 
     scoring(word){
@@ -127,6 +123,7 @@ class DecodeMeGame{
                 
                 this.decrementLife();
                 console.log("Incorrect");
+                return true
             }
         }else{
             this.showGameEndScreen();

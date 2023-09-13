@@ -45,6 +45,12 @@ window.onload = () => {
                 if(game.scoring(input.value)){
                     newLevel();
                 }
+                let backToStartButton = document.getElementById('back-to-start-button');
+                backToStartButton.addEventListener('click', () => {
+                    document.querySelector('#intro-screen').classList.toggle('hidden');
+                    // document.querySelector('#game-screen').toggle('hidden')
+                    document.getElementById('end-content').remove()
+                })
             })
             input.onchange = (e) =>{
                 console.log(e.target.value);
@@ -116,6 +122,8 @@ window.onload = () => {
                 document.getElementById('how-to-play').remove()
             })
     })
+
+   
 
     // console.log('THIS IS THE END', ' ', game.isGameOver());
     // if(game.isGameOver()){
