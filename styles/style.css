@@ -1,80 +1,24 @@
-* {
-  margin: 0;
-  font-family: "Lucida Console", "Courier New", monospace;
+
+#container {
+    width: 500px;
+    height: 100px;
+    overflow: hidden;
 }
 
-.hidden {
-  display: none;
-}
+ #main-alpha {
+    display: flex;
+    width: 500px;
+ }
 
-body {
-  font-size: 10px;
-  color: skyblue;
-  background-color: black;
-}
+p {
+    width: 8px;
+    border: 1px solid black;
+    margin: 0 5px
+ }
 
-#intro-screen #blue_matrix_vid {
-  -o-object-fit: cover;
-     object-fit: cover;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-}
-#intro-screen #title, #intro-screen .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#intro-screen #title {
-  margin-top: 20vh;
-  margin-bottom: 20vh;
-  font-size: 10em;
-}
-#intro-screen .button #start-button, #intro-screen .button #how-to-button {
-  font-size: 5em;
-}
-#intro-screen .button #start-button {
-  padding-left: 4vw;
-  padding-right: 4vw;
-}
-
-#game-screen #stats * {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  font-size: 3em;
-  margin-right: 5vw;
-}
-#game-screen #game-level #enc-word, #game-screen #game-level #key {
-  font-size: 1em;
-}
-#game-screen #game-level #enc-word-prompt, #game-screen #game-level #key-word-prompt {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5vh;
-  font-size: 3em;
-}
-#game-screen #game-level .button span {
-  font-size: 3em;
-}
-#game-screen #game-level .button #player-input {
-  width: 50%;
-  height: 1em;
-  font-size: 3em;
-  padding-top: 5px;
-  border: none;
-  background-color: rgb(0, 25, 40);
-}
-#game-screen #game-level .button #submit-button {
-  font-size: 3em;
-}
-
-#end-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 5em;
-}/*# sourceMappingURL=style.css.map */
+ #sub-alpha {
+    position: relative;
+    display: flex;
+    width: 1500px;
+    /* left: -500px; */
+ }
