@@ -84,18 +84,33 @@ class DecodeMeGame{
         let htmlGameOver = '';
         let htmlYouWin = '';
         htmlGameOver += `
-        <div id="end-message">
-            <p><strong>GAME OVER</strong></p>
-            <p><strong>FINAL SCORE: ${game.score}</strong><p>
+        <div id="end-content">
+            <div id="end-message">
+                <p><strong>GAME OVER</strong></p>
+                <p><strong>FINAL SCORE: ${game.score}</strong><p>
+            </div>
+            <div class="button" id="end-screen-button">
+                <button id="back-to-start-button">Back To Start</button>
+            </div>
         </div>
         `;
         htmlYouWin += `
-        <div id="end-message">
-            <p><strong>YOU WIN</strong></p>
-            <p><strong>FINAL SCORE: ${game.score}</strong><p>
+        <div id="end-content">
+            <div id="end-message">
+                <p><strong>YOU WIN</strong></p>
+                <p><strong>FINAL SCORE: ${game.score}</strong><p>
+            </div>
+            <div class="button">
+                <button id="back-to-start-button">Back To Start</button>
+            </div>
         </div>
         `;
         endScreen.innerHTML = game.score >= 5 ? htmlYouWin : htmlGameOver;
+        let backToStartButton = document.getElementById('back-to-start-button');
+        backToStartButton.addEventListener('click', () => {
+            document.querySelector('#intro-screen').classList.toggle('hidden');
+            document.getElementById('end-content').remove()
+        })
     }
 
     scoring(word){

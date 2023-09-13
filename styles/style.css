@@ -73,6 +73,14 @@ body {
   font-size: 3em;
 }
 
+#how-to-play .button {
+  display: flex;
+  justify-content: center;
+}
+#how-to-play .button #back-to-start-button {
+  font-size: 5em;
+}
+
 #instructions h1 {
   display: flex;
   justify-content: center;
@@ -83,10 +91,13 @@ body {
   font-size: 3em;
   margin: 10px 20px;
 }
+#instructions h3 {
+  font-size: 2em;
+  margin: 10px 20px;
+}
 #instructions p, #instructions ul {
   font-size: 2em;
-  margin: 1em 0;
-  margin-left: 3em;
+  margin: 10px 30px;
   text-align: justify;
 }
 
@@ -94,5 +105,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   font-size: 5em;
+  text-align: center;
+}
+#end-screen .button {
+  display: flex;
+  justify-content: center;
+}
+#end-screen .button #back-to-start-button {
+  margin-top: 30px;
+  font-size: 1em;
 }/*# sourceMappingURL=style.css.map */

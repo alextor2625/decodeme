@@ -14,58 +14,6 @@ function newLevel(){
 }
 
 window.onload = () => {
-    let howtoPlayButton = document.getElementById('how-to-play-button');
-    howtoPlayButton.addEventListener('click',() => {
-        document.querySelector('#intro-screen').classList.toggle('hidden');
-        let html = '';
-        html += `
-        <div id="how-to-play">
-            <div id="instructions">
-                <h1>How to play?</h1>
-                <p>
-                    <h2>About the game: </h2>
-
-                    <p>DecodeMe is a game that implements the Caesar Cipher encryption method.</p>
-
-                    
-                    <h2> What is Caesar Cipher? </h2>
-
-                    <p> Caesar cipher is a simple method of encoding messages. Caesar ciphers 
-                    use a substitution method where letters in the alphabet are shifted by 
-                    a fixed number of spaces to yield an encoding alphabet. This fixed number
-                    is known as the key. In other words, all the letters of the word are 
-                    shifted in the alphabet by the key.</p>
-
-                    <h2>For Example: </h2>                                            
-                    <ul>
-                        <li> Assume we have an alphabet which their positions is from 0 to 25.</li>
-                        <li> If the Key is 1 and the word is HELLO.</li>
-                        <li> H's position in thE alphabet is 7 and 7 + 1 = 8 so now H will be the letter in position 8, I.</li>
-                        <li> E's position is 4, 4 + 1 = 5 so now E changes to F.</li> 
-                        <li> L's position is 11, 11 + 1 = 12 so now L is M.</li>
-                        <li> And finally O's position is 14, 14 + 1 = 15 so now O is P.</li>
-                        <li> The final ecryption result would be IFMMP.</li>
-                    </ul>
-
-
-                    <h2>Goal: </h2>
-
-                    <p>When the game starts it will prompt the player a random encrypted word 
-                    encrypted with a random key. The key will also by given to the player. 
-                    You have 3 lives and a timer, if either of them hits 0 the game ends.
-                    The goal of the player is to decipher/decrypt the prompts with given 
-                    key using the decoder ring in the level to help with the decryption.
-                    If the player gets 5 right answers the player wins but the game keeps 
-                    going until either lives or timer hits 0 so the player can keep scoring 
-                    until the game ends.</p>
-
-                </p>
-                
-            </div>
-        </div>
-        `;
-        document.querySelector('#how-to-play-screen').innerHTML = html;
-    })
     let startButton = document.getElementById('start-button');
     startButton.addEventListener('click', ()=>{
         console.log("Starting Game");
@@ -106,6 +54,69 @@ window.onload = () => {
         game.startTimerCountdown();
 
     })
+
+    let howtoPlayButton = document.getElementById('how-to-play-button');
+    howtoPlayButton.addEventListener('click',() => {
+        document.querySelector('#intro-screen').classList.toggle('hidden');
+        let html = '';
+        html += `
+        <div id="how-to-play">
+            <div id="instructions">
+                <h1>How to play?</h1>
+                <p>
+                    <h2>About the game: </h2>
+
+                    <p>DecodeMe is a game that implements the Caesar Cipher encryption method.</p>
+
+                    
+                    <h2> What is Caesar Cipher? </h2>
+
+                    <p> Caesar cipher is a simple method of encoding messages. Caesar ciphers 
+                    use a substitution method where letters in the alphabet are shifted by 
+                    a fixed number of spaces to yield an encoding alphabet. This fixed number
+                    is known as the key. In other words, all the letters of the word are 
+                    shifted in the alphabet by the key.</p>
+
+                    <h3>For Example: </h2>                                            
+                    <ul>
+                        <li> Assume we have an alphabet which their positions is from 0 to 25.</li>
+                        <li> If the Key is 1 and the word is HELLO.</li>
+                        <li> H's position in thE alphabet is 7 and 7 + 1 = 8 so now H will be the letter in position 8, I.</li>
+                        <li> E's position is 4, 4 + 1 = 5 so now E changes to F.</li> 
+                        <li> L's position is 11, 11 + 1 = 12 so now L is M.</li>
+                        <li> And finally O's position is 14, 14 + 1 = 15 so now O is P.</li>
+                        <li> The final ecryption result would be IFMMP.</li>
+                        <li> To decrypt, you do the same process in reverse.</li>
+                    </ul>
+
+
+                    <h2>Goal: </h2>
+
+                    <p>When the game starts it will prompt the player a random encrypted word 
+                    encrypted with a random key. The key will also by given to the player. 
+                    You have 3 lives and a timer, if either of them hits 0 the game ends.
+                    The goal of the player is to decipher/decrypt the prompts with given 
+                    key using the decoder ring in the level to help with the decryption.
+                    If the player gets 5 right answers the player wins but the game keeps 
+                    going until either lives or timer hits 0 so the player can keep scoring 
+                    until the game ends.</p>
+
+                </p>
+                
+            </div>
+            <div class="button">
+                <button id="back-to-start-button">Back To Start</button>
+            </div>
+        </div>
+        `;
+        document.querySelector('#how-to-play-screen').innerHTML = html;
+        let backToStartButton = document.getElementById('back-to-start-button');
+            backToStartButton.addEventListener('click', () => {
+                document.querySelector('#intro-screen').classList.toggle('hidden');
+                document.getElementById('how-to-play').remove()
+            })
+    })
+
     // console.log('THIS IS THE END', ' ', game.isGameOver());
     // if(game.isGameOver()){
     //     showGameEndScreen()
