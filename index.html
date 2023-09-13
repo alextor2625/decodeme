@@ -1,128 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secret Decoder</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id="container">
-
-        <div id="main-alpha">
-            <p>A</p>
-            <p>B</p>
-            <p>C</p>
-            <p>D</p>
-            <p>E</p>
-            <p>F</p>
-            <p>G</p>
-            <p>H</p>
-            <p>I</p>
-            <p>J</p>
-            <p>K</p>
-            <p>L</p>
-            <p>M</p>
-            <p>N</p>
-            <p>O</p>
-            <p>P</p>
-            <p>Q</p>
-            <p>R</p>
-            <p>S</p>
-            <p>T</p>
-            <p>U</p>
-            <p>V</p>
-            <p>W</p>
-            <p>X</p>
-            <p>Y</p>
-            <p>Z</p>
-        </div>
-
-        <div id="sub-alpha">
-            <p>a</p>
-            <p>b</p>
-            <p>c</p>
-            <p>d</p>
-            <p>e</p>
-            <p>f</p>
-            <p>g</p>
-            <p>h</p>
-            <p>i</p>
-            <p>j</p>
-            <p>k</p>
-            <p>l</p>
-            <p>m</p>
-            <p>n</p>
-            <p>o</p>
-            <p>p</p>
-            <p>q</p>
-            <p>r</p>
-            <p>s</p>
-            <p>t</p>
-            <p>u</p>
-            <p>v</p>
-            <p>w</p>
-            <p>x</p>
-            <p>y</p>
-            <p>z</p>
-            <p>a</p>
-            <p>b</p>
-            <p>c</p>
-            <p>d</p>
-            <p>e</p>
-            <p>f</p>
-            <p>g</p>
-            <p>h</p>
-            <p>i</p>
-            <p>j</p>
-            <p>k</p>
-            <p>l</p>
-            <p>m</p>
-            <p>n</p>
-            <p>o</p>
-            <p>p</p>
-            <p>q</p>
-            <p>r</p>
-            <p>s</p>
-            <p>t</p>
-            <p>u</p>
-            <p>v</p>
-            <p>w</p>
-            <p>x</p>
-            <p>y</p>
-            <p>z</p>
-            <p>a</p>
-            <p>b</p>
-            <p>c</p>
-            <p>d</p>
-            <p>e</p>
-            <p>f</p>
-            <p>g</p>
-            <p>h</p>
-            <p>i</p>
-            <p>j</p>
-            <p>k</p>
-            <p>l</p>
-            <p>m</p>
-            <p>n</p>
-            <p>o</p>
-            <p>p</p>
-            <p>q</p>
-            <p>r</p>
-            <p>s</p>
-            <p>t</p>
-            <p>u</p>
-            <p>v</p>
-            <p>w</p>
-            <p>x</p>
-            <p>y</p>
-            <p>z</p>
-        </div>
-        
+  <header>
+    <h1>Secret Decoder</h1>
+    <input type="range" class="slider" name="points" min="0" max="26" value="0">
+  </header>
+  <div class="wheel-outer">
+    <div class="wheel">
+      <input type="text" class="text" value="0">
+      <div class="plaintext">
+        <!-- Generated span elements for plaintext -->
+      </div>
+      <div class="ciphertext">
+        <!-- Generated span elements for ciphertext -->
+      </div>
     </div>
-    
-
-    <script src="./scripts/index.js"></script>
+  </div>
+  <script src="index.js"></script>
+  <script src="move.js"></script>
 </body>
 </html>
