@@ -1,11 +1,11 @@
 class DecodeMeGame{
-    constructor(key){
-        this.timer = 60; // Every 1000 is a second.
+    constructor(maxKeyRange){
+        this.timer = 330; // Every 1000 is a second.
         this.intervalID = null;
-        this.randKey = key;
-        this.dictionary = new Dictionary(this.randKey);
+        this.dictionary = new Dictionary(maxKeyRange);
         this.wordList = this.dictionary.words;
         this.encWordList = this.dictionary.encWords;
+        this.keyList = this.dictionary.keyArr;
         this.index = this.randomIndex(this.wordList.length);
         this.score = 0;
         this.lives = 3;
@@ -46,17 +46,7 @@ class DecodeMeGame{
         clearInterval(this.intervalID)
         this.showGameEndScreen();
     }
-    randomKey(maxKeyRange){
-        if(maxKeyRange > 10){
-            this.randKey = Math.floor(Math.random()*10);
-            return 'New Random Key';
-        }else{
-            console.log('Here');
-            this.randKey = Math.floor(Math.random()*maxKeyRange)+1;
-            return 'New Random Key';
-        }
-    }
-    
+
     getCurrEncWord(){
         return this.encWordList[this.index]
     }
@@ -71,9 +61,11 @@ class DecodeMeGame{
         // this.gameScreen.style.height = `${this.height}vh`; //Changed this last night
         // this.gameScreen.style.width = `${this.width}vw`;
         document.getElementById('stats').classList.toggle('hidden');
+        document.getElementById('cipher-slider').classList.toggle('hidden')
         this.statsScore.innerHTML += this.score;
         this.statsLives.innerHTML += this.lives;
         this.statsTimer.innerHTML += this.timer;
+        this.startTimerCountdown();
         
     }
     gameEnd(){
@@ -94,18 +86,29 @@ class DecodeMeGame{
         let htmlGameOver = '';
         let htmlYouWin = '';
         htmlGameOver += `
-        <div id="end-message">
-            <p><strong>GAME OVER</strong></p>
-            <p><strong>FINAL SCORE: ${game.score}</strong><p>
+        <div id="end-content">
+            <div id="end-message">
+                <p><strong>GAME OVER</strong></p>
+                <p><strong>FINAL SCORE: ${game.score}</strong><p>
+            </div>
+            <div class="button" id="end-screen-button">
+                <button id="back-to-start-button">Back To Start</button>
+            </div>
         </div>
         `;
         htmlYouWin += `
-        <div id="end-message">
-            <p><strong>YOU WIN</strong></p>
-            <p><strong>FINAL SCORE: ${game.score}</strong><p>
+        <div id="end-content">
+            <div id="end-message">
+                <p><strong>YOU WIN</strong></p>
+                <p><strong>FINAL SCORE: ${game.score}</strong><p>
+            </div>
+            <div class="button">
+                <button id="back-to-start-button">Back To Start</button>
+            </div>
         </div>
         `;
         endScreen.innerHTML = game.score >= 5 ? htmlYouWin : htmlGameOver;
+        
     }
 
     scoring(word){
@@ -114,6 +117,7 @@ class DecodeMeGame{
                 this.incrementScore();
                 this.wordList.splice(this.index,1);
                 this.encWordList.splice(this.index,1);
+                this.keyList.splice(this.index,1);
                 this.setRandIndex();
                 console.log("Correct");
                 return true;
@@ -121,6 +125,7 @@ class DecodeMeGame{
                 
                 this.decrementLife();
                 console.log("Incorrect");
+                return true
             }
         }else{
             this.showGameEndScreen();
@@ -134,7 +139,7 @@ class DecodeMeGame{
 
 
     getCurrKey(){
-        return this.randKey;
+        return this.keyList[this.index];
     }
 
     isDecrypt(word){
