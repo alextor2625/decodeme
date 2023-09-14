@@ -23,14 +23,14 @@ input[type=range]::-webkit-slider-thumb {
   border: 2.2px solid #000000;
   height: 39px;
   width: 19px;
-  background: rgba(106, 135, 204, 0.7);
+  background:  rgba(28, 45, 80, 0.68);
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -13.9px;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: rgba(106, 135, 204, 0.7);
+  background:  rgba(28, 45, 80, 0.68);
 }
 
 input[type=range]::-moz-range-track {
@@ -38,7 +38,7 @@ input[type=range]::-moz-range-track {
   height: 12.6px;
   cursor: pointer;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: rgba(106, 135, 204, 0.7);
+  background: rgba(28, 45, 80, 0.68);
   border: 0.7px solid #562425;
 }
 
@@ -140,6 +140,7 @@ h1 {
   height: 49px;
   color: black;
   font-family: Monaco, MonoSpace;
+  z-index: 999;
 }
 
 .plaintext span {
@@ -160,7 +161,7 @@ h1 {
   position: absolute;
   width: auto;
   left: 200px;
-  background-color: rgba(106, 135, 204, 0.7);
+  background-color: rgba(28, 45, 80, 0.68);
   color: white;
   top: 40px;
   padding: 2px;

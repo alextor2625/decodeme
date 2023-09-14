@@ -57,17 +57,21 @@ body {
   margin-bottom: 5vh;
   font-size: 3em;
 }
+#game-screen #game-level .button {
+  display: flex;
+  justify-content: center;
+}
 #game-screen #game-level .button label {
   font-size: 3em;
 }
 #game-screen #game-level .button #player-input {
   color: skyblue;
-  width: 50%;
+  width: 30vw;
   height: 1em;
   font-size: 3em;
   padding-top: 5px;
   border: none;
-  background-color: rgb(0, 25, 40);
+  background-color: rgba(28, 45, 80, 0.68);
 }
 #game-screen #game-level .button #submit-button {
   font-size: 3em;

@@ -4,7 +4,7 @@ const ciphertextContainer = document.querySelector('.ciphertext');
 
 // Iterate through the alphabet from 'a' to 'z'
 for (let index = 0; index < 26; index++) {
-  const letter = String.fromCharCode(97 + index); // Convert index to character ('a' to 'z')
+  const letter = String.fromCharCode(97 + index).toUpperCase(); // Convert index to character ('a' to 'z')
 
   // Create a span element for plaintext
   const plaintextSpan = document.createElement('span');

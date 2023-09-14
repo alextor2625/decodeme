@@ -109,11 +109,20 @@ class DecodeMeGame{
         `;
         endScreen.innerHTML = game.score >= 5 ? htmlYouWin : htmlGameOver;
         
+        let backToStartButton = document.getElementById('back-to-start-button');
+        backToStartButton.addEventListener('click', () => {
+            // document.querySelector('#intro-screen').classList.toggle('hidden');
+            // // document.querySelector('#game-screen').toggle('hidden')
+            // document.getElementById('end-content').remove()
+
+            window.location.reload()
+        })
     }
 
     scoring(word){
         if(!this.isGameOver()){
-            if(this.isDecrypt(word)){
+            console.log(word.toLowerCase())
+            if(this.isDecrypt(word.toLowerCase())){
                 this.incrementScore();
                 this.wordList.splice(this.index,1);
                 this.encWordList.splice(this.index,1);
