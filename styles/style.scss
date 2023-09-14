@@ -36,8 +36,11 @@ body{
         font-size: 10em;
     }
     .button{
-        // display: flex;
+        display: flex;
+        flex-direction: column;
+
         #start-button, #how-to-play-button{
+            margin-bottom: 20px;
             font-size: 5em;
         }
         #start-button{
@@ -55,6 +58,13 @@ body{
         align-items: flex-end;
         font-size: 3em;
         margin-right: 5vw;
+    }
+    .button{
+        display: flex;
+        justify-content: center;
+        #end-game{
+            font-size: 3em;
+        }
     }
     #game-level{
         #enc-word, #key{
@@ -146,4 +156,3 @@ body{
         }
     }
 }
-

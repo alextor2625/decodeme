@@ -36,15 +36,15 @@ function typeWriter(text,i,id,carat){
 window.onload = () => {
 
     typeWriter('DecodeMe',0,'title')
-    setTimeout(() => {
-        document.getElementById('start-button').classList.toggle('hidden');
-        typeWriter('Start',0,'start-button',1)
+    // setTimeout(() => {
+    //     document.getElementById('start-button').classList.toggle('hidden');
+    //     typeWriter('Start',0,'start-button',1)
 
-        setTimeout(() => {
-            document.getElementById('how-to-play-button').classList.toggle('hidden');
-            typeWriter('How to play?',0,'how-to-play-button',1)
-        },700)
-    },1000)
+    //     setTimeout(() => {
+    //         document.getElementById('how-to-play-button').classList.toggle('hidden');
+    //         typeWriter('How to play?',0,'how-to-play-button',1)
+    //     },700)
+    // },1000)
 
     let startButton = document.getElementById('start-button');
     startButton.addEventListener('click', ()=>{
@@ -66,8 +66,8 @@ window.onload = () => {
 
         let html = `
                 <div class="content">
-                    <p id="enc-word-prompt">Encrypted Word: <span id="enc-word"></span></p>
-                    <p id="key-word-prompt">Key: <span id="key">${game.getCurrKey()}</span></p>
+                    <p id="enc-word-prompt"><span id="enc-word-prompt-title">Encrypted Word: </span> <span id="enc-word"></span></p>
+                    <p id="key-word-prompt"><span id="key-word-prompt-title">Key: </span><span id="key">${game.getCurrKey()}</span></p>
                 </div>
                 <div class="button"><label for="player-input">></label>
                     <input type="text" id="player-input"></input>
@@ -87,15 +87,23 @@ window.onload = () => {
             console.log(parent);
             parent.insertBefore(newElem, slider)
 
-            // document.getElementById('enc-word-prompt').innerHTML = ''
-            // typeWriter('Encrypted Word: ',0,'enc-word-prompt')
-            setTimeout(() =>typeWriter(game.getCurrEncWord(),0,'enc-word'),400)
+            document.getElementById('enc-word-prompt-title').innerHTML = ''
+            document.getElementById('key-word-prompt-title').innerHTML = ''
+            typeWriter('Encrypted Word: ',0,'enc-word-prompt-title')
+            typeWriter('Key: ',0,'key-word-prompt-title')
+            setTimeout(() =>typeWriter(game.getCurrEncWord(),0,'enc-word'),600)
             
+
+            // let endGameButton = document.createElement('button')
+            //     endGameButton.setAttribute('id','end-game');
+            //     endGameButton.setAttribute('class', 'button')
+            //     endGameButton.innerHTML = "End Game";
+            //     document.getElementById('game-content').appendChild(endGameButton);    
 
             let input = document.getElementById('player-input')
             console.log(game.dictionary.decDict[game.getCurrEncWord()]); //cheat
-            let button = document.getElementById('submit-button');
-            button.addEventListener('click',  () => {
+            let submitButton = document.getElementById('submit-button');
+            submitButton.addEventListener('click',  () => {
                 if(game.scoring(input.value)){
                     newLevel();
                 }
@@ -104,6 +112,18 @@ window.onload = () => {
                             
                 }
             })
+
+            input.addEventListener("keyup", (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    submitButton.click();
+                }
+
+                
+            });
+
+            
+            
         
 
     })

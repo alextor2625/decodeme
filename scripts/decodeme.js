@@ -1,6 +1,6 @@
 class DecodeMeGame{
     constructor(maxKeyRange){
-        this.timer = 330; // Every 1000 is a second.
+        this.timer = 500; // Every 1000 is a second.
         this.intervalID = null;
         this.dictionary = new Dictionary(maxKeyRange);
         this.wordList = this.dictionary.words;
@@ -121,7 +121,6 @@ class DecodeMeGame{
 
     scoring(word){
         if(!this.isGameOver()){
-            console.log(word.toLowerCase())
             if(this.isDecrypt(word.toLowerCase())){
                 this.incrementScore();
                 this.wordList.splice(this.index,1);
@@ -158,7 +157,7 @@ class DecodeMeGame{
         return this.score >= 5;
     }
     isGameOver(){
-        return this.lives === 1 || this.timer === 0;
+        return this.lives === 0 || this.timer === 0;
     }
 }
 

@@ -33,7 +33,12 @@ body {
   margin-bottom: 20vh;
   font-size: 10em;
 }
+#intro-screen .button {
+  display: flex;
+  flex-direction: column;
+}
 #intro-screen .button #start-button, #intro-screen .button #how-to-play-button {
+  margin-bottom: 20px;
   font-size: 5em;
 }
 #intro-screen .button #start-button {
@@ -47,6 +52,13 @@ body {
   align-items: flex-end;
   font-size: 3em;
   margin-right: 5vw;
+}
+#game-screen .button {
+  display: flex;
+  justify-content: center;
+}
+#game-screen .button #end-game {
+  font-size: 3em;
 }
 #game-screen #game-level #enc-word, #game-screen #game-level #key {
   font-size: 1em;
