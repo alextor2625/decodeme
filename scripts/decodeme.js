@@ -61,9 +61,11 @@ class DecodeMeGame{
         // this.gameScreen.style.height = `${this.height}vh`; //Changed this last night
         // this.gameScreen.style.width = `${this.width}vw`;
         document.getElementById('stats').classList.toggle('hidden');
+        document.getElementById('cipher-slider').classList.toggle('hidden')
         this.statsScore.innerHTML += this.score;
         this.statsLives.innerHTML += this.lives;
         this.statsTimer.innerHTML += this.timer;
+        this.startTimerCountdown();
         
     }
     gameEnd(){

@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/CSS" href="styles/cipher-wheel-style.css">
         <link rel="stylesheet" type="text/CSS" href="styles/style.css">
+        
 
         <title>DecodeME</title>
     </head>
@@ -25,13 +27,33 @@
                 <span id="lives">Lives: </span>
                 <span id="timer">Timer: </span>
             </div>
-            <div id="game-content"></div>
+            <div id="game-content">
+                <div class="hidden" id="cipher-slider">
+                    <header>
+                        <h1>Decoder</h1>
+                        <input type="range" class="slider" name="points" min="0" max="26" value="0">
+                      </header>
+                      <div class="wheel-outer">
+                        <div class="wheel">
+                          <input type="text" class="text" value="0">
+                          <div class="plaintext">
+                            <!-- Generated span elements for plaintext -->
+                          </div>
+                          <div class="ciphertext">
+                            <!-- Generated span elements for ciphertext -->
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
         </div>
         <div id="end-screen">
 
         </div>
         <script src="./scripts/dictionary.js"></script>
         <script src="./scripts/decodeme.js"></script>
+        <script src="./scripts/cipher-wheel-movement.js"></script>
+        <script src="./scripts/cipher-wheel-main.js"></script>
         <script src="./scripts/index.js"></script>
     </body>
 </html>

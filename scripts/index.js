@@ -21,9 +21,7 @@ window.onload = () => {
         console.log(game.dictionary.encDict);
         
         
-        let html = '';
-            html += `
-            <div id="game-level">
+        let html = `
                 <div class="content">
                     <p id="enc-word-prompt">Encrypted Word: <span id="enc-word">${game.getCurrEncWord()}</span></p>
                     <p id="key-word-prompt">Key: <span id="key">${game.getCurrKey()}</span></p>
@@ -32,13 +30,23 @@ window.onload = () => {
                     <input type="text" id="player-input"></input>
                     <button id="submit-button">Submit</button>
                 </div>
-                <div class="cipher-slider"></div>
-            </div>
             `
                     
                     
-            document.querySelector("#game-content").innerHTML = html;
+            // document.querySelector("#game-content").innerHTML += html;
+
+            let newElem = document.createElement('div');
+            newElem.setAttribute('id','game-level')
+            newElem.innerHTML = html;
+            console.log(newElem);
+            let slider = document.getElementById('cipher-slider')
+            let parent = document.getElementById('game-content')
+            console.log(parent);
+            parent.insertBefore(newElem, slider)
+
+
             let input = document.getElementById('player-input')
+            console.log("Line 55", input);
             console.log(game.dictionary.decDict[game.getCurrEncWord()]); //cheat
             let button = document.getElementById('submit-button');
             button.addEventListener('click',  () => {
@@ -51,15 +59,15 @@ window.onload = () => {
                 //     // document.querySelector('#game-screen').toggle('hidden')
                 //     document.getElementById('end-content').remove()
                 })
+                input.onchange = (e) =>{
+                    console.log(e.target.value);
+                            
+                }
             })
-            input.onchange = (e) =>{
-                console.log(e.target.value);
-                        
-            }
         
-        game.startTimerCountdown();
+        // game.startTimerCountdown();
 
-    })
+    }
 
     let howtoPlayButton = document.getElementById('how-to-play-button');
     howtoPlayButton.addEventListener('click',() => {
@@ -130,8 +138,6 @@ window.onload = () => {
     //     showGameEndScreen()
     // }
                 
-
-}
 
 
 // console.log(new Dictionary(1).caesarDecrypt(1))
